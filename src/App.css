@@ -1,0 +1,14 @@
+* {
+  font-family : "Poppins", sans-serif;
+}
+body {
+  margin: 0;
+  background-color: #f2fffa;
+}
+a.active {
+  text-decoration: underline;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
