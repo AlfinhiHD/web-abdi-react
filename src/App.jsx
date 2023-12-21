@@ -8,6 +8,8 @@ import TrackingPage from "./pages/TrackingPage";
 import FoodDataPage from "./pages/FoodDataPage";
 import Login from "./pages/Login"
 import Register from "./pages/Register"
+import ProfilePage from "./pages/ProfilePage";
+import ProfileEdit from "./pages/ProfileEdit";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/Artikel/detail" element={<DetailArtikelPage />} />
         <Route path="/Tracking" element={<TrackingPage />} />
         <Route path="/Tracking/AddFood" element={<FoodDataPage />} />
+        <Route path="/Profile" element={<ProfilePage />} />
+        <Route path="/ProfileEdit" element={<ProfileEdit />} />
         <Route path='/login' element={<Login />} />
         <Route path='/Register' element={<Register />} /> 
       </Routes>

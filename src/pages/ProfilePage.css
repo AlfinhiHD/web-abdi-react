@@ -1,0 +1,65 @@
+/* ProfilePage.css */
+
+.ContainerProfile {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+}
+
+.ProfileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ProfileHeader h1 {
+    font-size: 24px;
+    color: #343a40;
+}
+
+.ProfileData {
+    display: flex;
+    flex-direction: column;
+}
+
+.ProfileDataColumn {
+    background-color: #fff;
+    padding: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.ProfileDataColumn label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    color: #343a40;
+}
+
+.ProfileDataColumn p {
+    margin: 0;
+    font-size: 16px;
+    color: #495057;
+}
+
+.EditLink {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #06b12e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.EditLink:hover {
+    background-color: #047b20;
+    color: #fff;
+}
+
+/* Add any additional styling as needed */

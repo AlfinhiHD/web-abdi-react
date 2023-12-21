@@ -10,63 +10,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./ArtikelPage.css";
+import { dummyArtikelData } from "../dummy/dummyData";
+import { Link } from "react-router-dom";
 
 function ArtikelPage() {
-  // const dispatch = useDispatch();
-  // const artikel = useSelector((state) => state.artikel)
-  // useEffect(() => {
-  //     dispatch(getArtikel());
-  // },[]);
-  // console.log()
-
-  const dummyArtikelData = {
-    artikel: {
-      allArticle: [
-        {
-          id: 1,
-          judul: "Contoh Artikel 1",
-          tanggal: "2023-01-01",
-          konten:
-            "Ini adalah konten dari artikel 1 Ini adalah konten dari artikel 1 Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1Ini adalah konten dari artikel 1v.",
-          image:
-            "https://awsimages.detik.net.id/community/media/visual/2022/11/20/rijsttafel-indonesia-2.jpeg?w=600&q=90",
-        },
-        {
-          id: 3,
-          judul: "Contoh Artikel 3",
-          tanggal: "2023-01-02",
-          konten: "Ini adalah konten dari artikel 2.",
-          image:
-            "https://awsimages.detik.net.id/community/media/visual/2022/11/20/rijsttafel-indonesia-2.jpeg?w=600&q=90",
-        },
-        {
-          id: 4,
-          judul: "Contoh Artikel 4",
-          tanggal: "2023-01-02",
-          konten: "Ini adalah konten dari artikel 2.",
-          image:
-            "https://awsimages.detik.net.id/community/media/visual/2022/11/20/rijsttafel-indonesia-2.jpeg?w=600&q=90",
-        },
-        {
-          id: 5,
-          judul: "Contoh Artikel 5",
-          tanggal: "2023-01-02",
-          konten: "Ini adalah konten dari artikel 2.",
-          image:
-            "https://awsimages.detik.net.id/community/media/visual/2022/11/20/rijsttafel-indonesia-2.jpeg?w=600&q=90",
-        },
-        {
-          id: 6,
-          judul: "Contoh Artikel 6",
-          tanggal: "2023-01-02",
-          konten: "Ini adalah konten dari artikel 2.",
-          image:
-            "https://awsimages.detik.net.id/community/media/visual/2022/11/20/rijsttafel-indonesia-2.jpeg?w=600&q=90",
-        },
-        // ... tambahkan artikel dummy lainnya sesuai kebutuhan
-      ],
-    },
-  };
 
   const sliderSettings = {
     dots: false,
@@ -79,26 +26,6 @@ function ArtikelPage() {
 
   const [dummyArtikel, setDummyArtikel] = useState(dummyArtikelData);
   return (
-    // <>
-    // <Navbar/>
-    // <div className='ContainerArtikel'>
-    //     <div className='ArtikelHeading'>
-    //         <ArtikelHeading
-    //         title ={artikel.artikel.allArticle?.[0].judul}
-    //         img ={artikel.artikel.allArticle?.[0].image}
-    //         tanggal ={artikel.artikel.allArticle?.[0].tanggal}/>
-    //     </div>
-    //     <hr />
-    //     <div className='ArtikelCard'>
-    //         {artikel.artikel.allArticle?.map((artikel) => (
-    //             <ArtikelCard id={artikel.id} title={artikel.judul} tanggal={artikel.tanggal} konten={artikel.konten} image={artikel.image}/>
-    //         ))}
-
-    //     </div>
-    // </div>
-    // <Footer/>
-    // </>
-
     <>
       <Navbar />
       <div className="ContainerArtikel">
@@ -117,8 +44,16 @@ function ArtikelPage() {
                   <div className="col-md-6 carousel-text">
                     <h3>{artikel.judul}</h3>
                     <small>{artikel.tanggal}</small>
-                    <p className="mt-3">{artikel.konten}</p>
-                    {/* Add any additional information you want to display */}
+                    <p className="mt-3">
+                      {artikel.konten.length > 150
+                        ? `${artikel.konten.substring(0, 150)}...`
+                        : artikel.konten}
+                    </p>
+                    {artikel.konten.length > 150 && (
+                      <Link className="link" to={`/Artikel/detail/${artikel.id}`}>
+                        Selengkapnya
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

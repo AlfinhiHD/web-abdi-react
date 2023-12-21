@@ -24,6 +24,9 @@ function Navbar() {
                     <li>
                         <NavLink to='/Artikel'>Artikel</NavLink>
                     </li>
+                    <li>
+                        <NavLink to='/Profile'>Profile</NavLink>
+                    </li>
                     <span onClick={() =>{localStorage.clear(),window.location.reload(false)}}>Logout</span>
                 </ul>
             </nav>

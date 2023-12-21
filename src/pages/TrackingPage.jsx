@@ -6,6 +6,7 @@ import DeleteIcon from "../assets/close-circle.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { deleteTrack, getTrack } from "../redux/trackSlice";
+import { dummyTrackingData } from "../dummy/dummyData";
 
 function TrackingPage() {
   const token = localStorage.getItem("token");
@@ -14,31 +15,8 @@ function TrackingPage() {
   }
   const usercalori = 2000; // Variabel dummy untuk keperluan contoh
   const dispatch = useDispatch();
-  const [track, setTrack] = useState({
-    track: {
-      allTracking: [
-        {
-          id: 1,
-          nama_makanan: {
-            nama: "Contoh Makanan",
-            karbohidrat: 30,
-            protein: 10,
-            lemak: 5,
-            karbon: 15,
-            kalori: 200,
-          },
-        },
-      ],
-    },
-  });
-  // const userlokal = JSON.parse(localStorage.user)
-  // const usercalori = userlokal.calori
-  // const user = useSelector((state) => state.user)
-  // const track = useSelector((state) => state.track)
-  // const dispatch = useDispatch()
-  // useEffect(() => {
-  //     dispatch(getTrack());
-  // },[])
+  const [track, setTrack] = useState(dummyTrackingData);
+
   let TotKarbon = track.track?.allTracking.reduce(function (prev, current) {
     return prev + +current.nama_makanan.karbon;
   }, 0);
@@ -55,7 +33,6 @@ function TrackingPage() {
     return prev + +current.nama_makanan.kalori;
   }, 0);
 
-  // console.log(track.track.allTracking[1])
   return (
     <>
       <Navbar />
@@ -65,6 +42,7 @@ function TrackingPage() {
             <div>
               <h2>Kalori Dibutuhkan</h2>
               <p>{usercalori} kkal</p>
+              <hr></hr>
             </div>
             <div>
               <h2>Kalori Terpenuhi</h2>
@@ -75,14 +53,17 @@ function TrackingPage() {
             <div>
               <h2>Karbohidrat</h2>
               <p>{TotKarb} gram</p>
+              <hr></hr>
             </div>
             <div>
               <h2>Protein</h2>
               <p>{TotProtein} gram</p>
+              <hr></hr>
             </div>
             <div>
               <h2>Lemak</h2>
               <p>{TotFat} gram</p>
+              <hr></hr>
             </div>
             <div>
               <h2>Karbon</h2>
@@ -90,9 +71,8 @@ function TrackingPage() {
             </div>
           </div>
         </div>
-        <hr />
         <div className="FoodToday">
-          <p>Makanan Hari ini</p>
+          <h3 className="mb-4">Makanan Hari ini</h3>
           <div className="tabel">
             <table className="TabelFoodToday">
               <thead>
@@ -103,6 +83,7 @@ function TrackingPage() {
                   <th className="TrackFoodFat">Lemak</th>
                   <th className="TrackFoodCarbon">Karbon</th>
                   <th className="TrackFoodCalori">Calori</th>
+                  <th className="TrackFoodAction">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -136,8 +117,8 @@ function TrackingPage() {
                 ))}
               </tbody>
             </table>
-            <span>
-              <Link to="/Tracking/AddFood"> Add Food</Link>
+            <span className="mt-3">
+              <Link className="" to="/Tracking/AddFood"> Add Food</Link>
             </span>
           </div>
         </div>
