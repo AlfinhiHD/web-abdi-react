@@ -21,10 +21,6 @@
     color: #343a40;
 }
 
-.ProfileData {
-    display: flex;
-    flex-direction: column;
-}
 
 .ProfileDataColumn {
     background-color: #fff;
@@ -39,6 +35,10 @@
     margin-bottom: 8px;
     display: block;
     color: #343a40;
+}
+
+.ProfileData h3 {
+    color: #047b20;
 }
 
 .ProfileDataColumn p {

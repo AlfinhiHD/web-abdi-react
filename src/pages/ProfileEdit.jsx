@@ -42,7 +42,7 @@ function ProfileEdit() {
 
     return (
         <>
-        <div className='containerReg'>
+        <div className='containerReg pb-5'>
             
         <div className="container-2">
             <div className="title">Edit Akun</div>

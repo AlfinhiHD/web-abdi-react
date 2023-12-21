@@ -74,3 +74,34 @@ export const dummyTrackingData = {
     ],
   },
 };
+
+export const dummyFoodData = [
+  {
+    id: 1,
+    nama: "Nasi Goreng",
+    karbohidrat: 45,
+    protein: 10,
+    lemak: 8,
+    karbon: 20,
+    kalori: 350,
+  },
+  {
+    id: 2,
+    nama: "Ayam Bakar",
+    karbohidrat: 5,
+    protein: 25,
+    lemak: 15,
+    karbon: 10,
+    kalori: 300,
+  },
+  {
+    id: 3,
+    nama: "Sayur Capcay",
+    karbohidrat: 15,
+    protein: 5,
+    lemak: 2,
+    karbon: 8,
+    kalori: 120,
+  },
+  // Add more dummy food items as needed
+];
